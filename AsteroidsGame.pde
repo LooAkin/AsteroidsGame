@@ -1,20 +1,29 @@
 Spaceship zoom;
-Stars [] constellation = new Stars [100]; 
+Star [] constellation = new Star [100]; 
+Asteroid [] rock = new Asteroid [100];
 
 public void setup() 
 {
   size(800, 800);
   zoom = new Spaceship();
-  for (int i = 0; i < constellation.length; i++)
-    constellation[i] = new Stars();
+  for(int i = 0; i < constellation.length; i++)
+      constellation[i] = new Star();
+  for(int i = 0; i < rock.length; i++)
+      rock[i] = new Asteroid();
+
 }
 public void draw() 
 {
+  //your code here
   background(0);
-  for (int i = 0; i < constellation.length; i++)
-    constellation[i].show();
-  zoom.show();
-  zoom.move();
+    for(int i = 0; i < constellation.length; i++)
+      constellation[i].show();
+    for(int i = 0; i < rock.length; i++){
+      rock[i].show();
+      rock[i].move();
+    }
+    zoom.show();
+    zoom.move();
 }
 
 public void keyPressed() {
