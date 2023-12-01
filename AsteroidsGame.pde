@@ -1,6 +1,6 @@
 Spaceship zoom;
 Star [] constellation = new Star [100]; 
-Asteroid [] rock = new Asteroid [100];
+ArrayList <Asteroid> rock = new ArrayList<Asteroid>();
 
 public void setup() 
 {
@@ -8,9 +8,8 @@ public void setup()
   zoom = new Spaceship();
   for(int i = 0; i < constellation.length; i++)
       constellation[i] = new Star();
-  for(int i = 0; i < rock.length; i++)
-      rock[i] = new Asteroid();
-
+  for(int i = 0; i < 50; i++)
+      rock.add(new Asteroid());
 }
 public void draw() 
 {
@@ -18,30 +17,34 @@ public void draw()
   background(0);
     for(int i = 0; i < constellation.length; i++)
       constellation[i].show();
-    for(int i = 0; i < rock.length; i++){
-      rock[i].show();
-      rock[i].move();
-    }
     zoom.show();
     zoom.move();
+    for(int i = 0; i < rock.size(); i++){
+      rock.get(i).show();
+      rock.get(i).move();
+      float d = dist(zoom.getX(), zoom.getY(), rock.get(i).getX(), rock.get(i).getY());
+      if (d < 50){
+      rock.remove(i);
+      i --;
+      }
+    }
 }
 
-public void keyPressed() {
-  if (keyCode == UP) {
-    zoom.accelerate(0.5);
-  } 
-  if (keyCode == DOWN) {
-    zoom.accelerate(-0.5);
-  } 
-  if (keyCode == RIGHT) {
-    zoom.setDirection(1);
-    zoom.accelerate(-0.1);
-  } 
-  if (keyCode == LEFT) {
-    zoom.setDirection(0);
-    zoom.accelerate(-0.1);
-  } 
-  if (keyCode == SHIFT) {
+public void keyPressed(){
+    if(keyCode == UP){
+       zoom.accelerate(0.5);
+    } 
+    if(keyCode == DOWN){
+      zoom.accelerate(-0.5);
+    } 
+    if (keyCode == RIGHT){
+      zoom.setDirection(1);
+    } 
+    if (keyCode == LEFT){
+      zoom.setDirection(0);
+
+    } 
+    if (keyCode == SHIFT){
     zoom.hyperSpace();
-  }
+    } 
 }
