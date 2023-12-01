@@ -1,4 +1,4 @@
-class Spaceship extends Floater {
+class Spaceship extends Floater{
   public Spaceship() {
     corners = 4;
     xCorners = new int[corners];
@@ -11,21 +11,27 @@ class Spaceship extends Floater {
     yCorners[2] = 8;
     xCorners[3] = -2;
     yCorners[3] = 0;
-    myColor = 125;   
+    myColor = 250;   
     myCenterX = Math.random()*800; 
     myCenterY = Math.random()*800;
   }
-  public void setDirection(int x) {
-    if (1 == x)
-      myPointDirection += 2;
-    else
-      myPointDirection -= 2;
+  public float getX (){
+    return (float) myCenterX;
   }
-  public void hyperSpace() {
+  public float getY (){
+    return (float) myCenterY;
+  }
+  public void setDirection(int x){
+    if(1 == x)
+         myPointDirection += 2;
+        else
+        myPointDirection -= 2;
+  }
+  public void hyperSpace(){
     myPointDirection = (int)(Math.random()*360);
     myCenterX = Math.random()*800; 
     myCenterY = Math.random()*800;
     myXspeed = 0; 
-    myYspeed = 0;
-  }
+    myYspeed = 0; 
+  } 
 }
