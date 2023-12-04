@@ -1,8 +1,8 @@
-class Stars 
+class Star
 {
   private float x, y;
   private int myColor;
-  public Stars() {
+  public Star() {
     x = (float) (Math.random()*800);
     y = (float) (Math.random()*800);
     myColor = 255;
