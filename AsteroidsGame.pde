@@ -110,7 +110,6 @@ public void keyPressed() {
     showBill = true;
   }
       if((keyCode == ENTER)&&(win == true)||(zoom.getHealth()<1)){
-      System.out.print("RESETIING");
         setup();
         loop();   
   }
