@@ -38,11 +38,10 @@ class Spaceship extends Floater{
   }
   public void setDirection(int x){
     if(1 == x)
-         myPointDirection += 2;
-        else
-        myPointDirection -= 2;
+      myPointDirection += 2;
+    else
+      myPointDirection -= 2;
   }
-
   public void hyperSpace(){
     myPointDirection = (int)(Math.random()*360);
     myCenterX = Math.random()*800; 
