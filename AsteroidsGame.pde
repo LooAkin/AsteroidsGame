@@ -106,9 +106,11 @@ public void keyPressed() {
     bill.add(new Bullet(zoom));
     showBill = true;
   }
-if((keyCode == ENTER)&&(zoom.getHealth()<1)){
-    setup();
-    loop();   
-  } 
 }
 
+public void mouseClicked(){
+  if(zoom.getHealth()<1){
+    setup();
+    loop(); 
+  }
+}
