@@ -83,7 +83,7 @@ public void draw()
     text("Play Again?", 400, 550);
     text("Just Click Anywhere on the Window!", 400, 650);
     noLoop();
-  ]
+  }
 }
 
 public void keyPressed() {
