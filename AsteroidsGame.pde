@@ -108,9 +108,9 @@ public void keyPressed() {
   }
 }
 
-public void mouseClicked(){
-  if(zoom.getHealth()<1){
-    setup();
-    loop();   
-  }
-}
+//public void mouseClicked(){
+  //if(zoom.getHealth()<1){
+    //setup();
+    //loop();   
+ // }
+//}
