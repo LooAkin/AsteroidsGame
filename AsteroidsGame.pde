@@ -18,9 +18,9 @@ public void setup()
   for (int i = 0; i < 100; i++)
     rock.add(new Asteroid(1, -1, -1));
 }
+
 public void draw() 
 {
-  //your code here
   background(0);
   for (int i = 0; i < constellation.length; i++)
     constellation[i].show();
@@ -34,21 +34,21 @@ public void draw()
     }
   }
   if(rock.size() == 0)
-  win = true;
+    win = true;
   for (int i = 0; i < rock.size(); i++) {
     rock.get(i).show();
     rock.get(i).move();
-      float d = dist(zoom.getX(), zoom.getY(), rock.get(i).getX(), rock.get(i).getY());
-      if(d < 20) {
-          if(zoom.getHealth() > 0)
+    float d = dist(zoom.getX(), zoom.getY(), rock.get(i).getX(), rock.get(i).getY());
+    if(d < 20) {
+        if(zoom.getHealth() > 0)
           zoom.loseHealth();
-          if (rock.get(i).getSize() == 1) {
+        if (rock.get(i).getSize() == 1) {
           for(int k = 0; k < 5; k++)
             rock.add(new Asteroid(0, rock.get(i).getX(), rock.get(i).getY()));
           }
-            rock.remove(i);
-            break;
-        }
+      rock.remove(i);
+      break;
+    }
     for (int j = 0; j < bill.size(); j++) {
       float di = dist(bill.get(j).getX(), bill.get(j).getY(), rock.get(i).getX(), rock.get(i).getY());
       if (di < 25) {
@@ -63,31 +63,28 @@ public void draw()
     }
   }
   if(win == true){
-  textSize(100);
-  fill(0, 250, 0);
-  text("YOU WIN!", 400, 200);
-  text(":D", 400, 300);
-  noLoop();
+    textSize(100);
+    fill(0, 250, 0);
+    text("YOU WIN!", 400, 200);
+    text(":D", 400, 300);
+    noLoop();
   }
   if(zoom.getHealth() < 1){
-  zoom.displayHealth();
-  textSize(50);
-  fill(250, 0, 0);
-  text("YOU LOSE", 400, 200);
-  text("GOOD DAY SIR", 400, 250);
-  text(">:(", 400, 300);
-  noLoop();
-  }
-  if((win == true)||(zoom.getHealth()<1)){
+    zoom.displayHealth();
+    textSize(50);
+    fill(250, 0, 0);
+    text("YOU LOSE", 400, 200);
+    text("GOOD DAY SIR", 400, 250);
+    text(">:(", 400, 300);
     fill(0, 0, 255);
     rect(300, 500, 200, 200);
     fill(255, 255, 255);
     textSize(15);
     text("Play Again?", 400, 550);
-    text("Just Hit Enter!", 400, 650);
-  }
+    text("Just Click Anywhere on the Window!", 400, 650);
+    noLoop();
+  ]
 }
-
 
 public void keyPressed() {
   if (keyCode == UP) {
@@ -109,8 +106,11 @@ public void keyPressed() {
     bill.add(new Bullet(zoom));
     showBill = true;
   }
-      if((keyCode == ENTER)&&(win == true)||(zoom.getHealth()<1)){
-        setup();
-        loop();   
+}
+
+public void mouseClicked(){
+  if(zoom.getHealth()<1){
+    setup();
+    loop();   
   }
 }
