@@ -81,7 +81,8 @@ public void draw()
     fill(255, 255, 255);
     textSize(15);
     text("Play Again?", 400, 550);
-    text("Just Click Anywhere on the Window!", 400, 650);
+    text("Just Click", 400, 600);
+    text("Anywhere on the Window!", 400, 650);
     noLoop();
   }
 }
